@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { anthropic } from "@/lib/anthropic"
+import { groq } from "@/lib/groq"
 import { createClient } from "@/lib/supabase-server"
 
 export async function POST(req: NextRequest) {
@@ -74,8 +74,8 @@ Respond ONLY with valid JSON in this exact format, no other text:
   ]
 }`
 
-    const message = await anthropic.messages.create({
-      model: "claude-opus-4-6",
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
       max_tokens: 2000,
       messages: [
         {
@@ -85,21 +85,18 @@ Respond ONLY with valid JSON in this exact format, no other text:
       ],
     })
 
-    const content = message.content[0]
-    if (content.type !== "text") {
-      throw new Error("Unexpected response type from Claude")
-    }
+    const text = completion.choices[0]?.message?.content ?? ""
 
     let result
     try {
-      result = JSON.parse(content.text)
+      result = JSON.parse(text)
     } catch {
       // Try to extract JSON from the response if it has extra text
-      const jsonMatch = content.text.match(/\{[\s\S]*\}/)
+      const jsonMatch = text.match(/\{[\s\S]*\}/)
       if (jsonMatch) {
         result = JSON.parse(jsonMatch[0])
       } else {
-        throw new Error("Failed to parse Claude response as JSON")
+        throw new Error("Failed to parse Groq response as JSON")
       }
     }
 
