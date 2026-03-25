@@ -7,41 +7,51 @@ import { Button } from "@/components/ui/button"
 
 const plans = [
   {
-    name: "Starter",
-    description: "Perfect for side projects and small teams",
+    name: "Free",
+    description: "3 lifetime audits",
     price: { monthly: 0, yearly: 0 },
-    features: ["3 team members", "10 projects", "Basic analytics", "Community support", "1GB storage"],
-    cta: "Get Started",
+    features: ["3 total audits", "Full score breakdown", "Fix suggestions", "PDF export"],
+    cta: "Start Free",
     highlighted: false,
   },
   {
-    name: "Pro",
-    description: "For growing teams that need more power",
-    price: { monthly: 29, yearly: 24 },
+    name: "Starter",
+    description: "15 audits per month",
+    price: { monthly: 19, yearly: 15 },
     features: [
-      "Unlimited team members",
-      "Unlimited projects",
-      "Advanced analytics",
-      "Priority support",
-      "100GB storage",
-      "Custom domains",
-      "API access",
+      "15 audits/month",
+      "All Free features",
+      "History tracking",
+      "Priority processing",
+      "Email reports",
     ],
     cta: "Start Free Trial",
     highlighted: true,
   },
   {
-    name: "Enterprise",
-    description: "For organizations with advanced needs",
+    name: "Pro",
+    description: "Unlimited audits",
+    price: { monthly: 49, yearly: 39 },
+    features: [
+      "Unlimited audits",
+      "All Starter features",
+      "Historical comparison",
+      "API access",
+      "White-label reports",
+    ],
+    cta: "Get Pro",
+    highlighted: false,
+  },
+  {
+    name: "Agency",
+    description: "Team seats + unlimited",
     price: { monthly: 99, yearly: 79 },
     features: [
       "Everything in Pro",
-      "SSO & SAML",
+      "5 team seats",
+      "Client management",
+      "Custom branding",
       "Dedicated support",
-      "SLA guarantee",
-      "Unlimited storage",
-      "Custom integrations",
-      "Audit logs",
     ],
     cta: "Contact Sales",
     highlighted: false,
@@ -128,7 +138,7 @@ export function Pricing() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {plans.map((plan, index) => (
             <motion.div
@@ -145,23 +155,30 @@ export function Pricing() {
               {plan.highlighted && <BorderBeam />}
 
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-white text-zinc-950 text-xs font-medium rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-white text-zinc-950 text-xs font-medium rounded-full whitespace-nowrap">
                   Most Popular
                 </div>
               )}
 
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-white mb-2">{plan.name}</h3>
+                <h3 className="text-xl font-semibold text-white mb-1">{plan.name}</h3>
                 <p className="text-zinc-400 text-sm">{plan.description}</p>
               </div>
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-white">${plan.price[billingCycle]}</span>
+                  <span className="text-4xl font-bold text-white">
+                    €{plan.price[billingCycle]}
+                  </span>
                   {plan.price.monthly > 0 && <span className="text-zinc-400 text-sm">/month</span>}
                 </div>
                 {billingCycle === "yearly" && plan.price.yearly > 0 && (
-                  <p className="text-xs text-zinc-500 mt-1">Billed annually (${plan.price.yearly * 12}/year)</p>
+                  <p className="text-xs text-zinc-500 mt-1">
+                    Billed annually (€{plan.price.yearly * 12}/year)
+                  </p>
+                )}
+                {plan.price.monthly === 0 && (
+                  <p className="text-xs text-zinc-500 mt-1">Free forever</p>
                 )}
               </div>
 

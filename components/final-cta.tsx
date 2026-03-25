@@ -22,10 +22,10 @@ export function FinalCTA() {
           className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
           style={{ fontFamily: "var(--font-cal-sans)" }}
         >
-          Ready to ship faster?
+          Stop guessing. Start converting.
         </h2>
         <p className="text-lg sm:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-          Join thousands of teams already building with Apex. Start free, no credit card required.
+          Join 1,200+ founders who use AuditMyLanding to find and fix conversion leaks.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -33,7 +33,7 @@ export function FinalCTA() {
             size="lg"
             className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-14 text-base font-medium shadow-lg shadow-white/20"
           >
-            Get Started for Free
+            Join the Waitlist Free
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <Button
@@ -41,11 +41,13 @@ export function FinalCTA() {
             size="lg"
             className="rounded-full px-8 h-14 text-base font-medium border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 bg-transparent"
           >
-            Talk to Sales
+            See a Live Demo
           </Button>
         </div>
 
-        <p className="mt-8 text-sm text-zinc-500">Free forever for individuals. Team plans start at $29/month.</p>
+        <p className="mt-8 text-sm text-zinc-500">
+          Free forever for 3 audits. No credit card required.
+        </p>
       </motion.div>
     </section>
   )
