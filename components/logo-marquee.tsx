@@ -4,14 +4,14 @@ import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 
 const logos = [
-  { name: "Vercel", width: 100 },
-  { name: "Stripe", width: 80 },
-  { name: "Linear", width: 90 },
-  { name: "Notion", width: 100 },
-  { name: "Figma", width: 70 },
-  { name: "Slack", width: 90 },
-  { name: "Discord", width: 100 },
-  { name: "GitHub", width: 90 },
+  { name: "Webflow", width: 100 },
+  { name: "Framer", width: 80 },
+  { name: "WordPress", width: 110 },
+  { name: "Shopify", width: 90 },
+  { name: "Wix", width: 60 },
+  { name: "Squarespace", width: 120 },
+  { name: "HubSpot", width: 90 },
+  { name: "Unbounce", width: 100 },
 ]
 
 export function LogoMarquee() {
@@ -26,7 +26,7 @@ export function LogoMarquee() {
         transition={{ duration: 0.6 }}
         className="text-center mb-10"
       >
-        <p className="text-sm text-zinc-500 uppercase tracking-wider font-medium">Trusted by industry leaders</p>
+        <p className="text-sm text-zinc-500 uppercase tracking-wider font-medium">Analyzes pages built with</p>
       </motion.div>
 
       <div className="relative">

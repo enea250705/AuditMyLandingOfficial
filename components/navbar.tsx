@@ -7,9 +7,8 @@ import { Button } from "@/components/ui/button"
 
 const navItems = [
   { label: "Features", href: "#features" },
+  { label: "How It Works", href: "#how-it-works" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Docs", href: "#docs" },
-  { label: "Blog", href: "#blog" },
 ]
 
 export function Navbar() {
@@ -31,9 +30,9 @@ export function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center">
-            <span className="text-zinc-950 font-bold text-sm">A</span>
+            <span className="text-zinc-950 font-bold text-sm">AML</span>
           </div>
-          <span className="font-semibold text-white hidden sm:block">Apex</span>
+          <span className="font-semibold text-white hidden sm:block">AuditMyLanding</span>
         </a>
 
         {/* Desktop Nav Items */}
@@ -62,10 +61,10 @@ export function Navbar() {
         {/* CTA Buttons */}
         <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white hover:bg-zinc-800">
-            Sign In
+            Log In
           </Button>
           <Button size="sm" className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-4">
-            Get Started
+            Get Started Free
           </Button>
         </div>
 
@@ -100,9 +99,9 @@ export function Navbar() {
             ))}
             <hr className="border-zinc-800 my-2" />
             <Button variant="ghost" className="justify-start text-zinc-400 hover:text-white">
-              Sign In
+              Log In
             </Button>
-            <Button className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full">Get Started</Button>
+            <Button className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full">Get Started Free</Button>
           </div>
         </motion.div>
       )}
